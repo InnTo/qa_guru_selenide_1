@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 
-    public class SoftAssertionsAndJUnit5InRepository {
+    public class SoftAssertionsAndJUnit5InRepository{
 
         @BeforeAll
         static void setUp(){  //аннотация BeforeAll должна идти с методом static

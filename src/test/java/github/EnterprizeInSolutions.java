@@ -16,7 +16,7 @@ public class EnterprizeInSolutions {
     }
 
     @Test
-    void shouldHaveEnterprisesTest() {
+    void shouldHaveEnterprisesPageTest() {
         open("https://github.com/");
         $(".HeaderMenu-nav").$(byText("Solutions")).hover();
         $(byText("Enterprises")).click();

@@ -24,6 +24,18 @@ import static com.codeborne.selenide.Selenide.*;
             $(".markdown-body").$("ul").shouldHave(text("Soft assertions"));
 
             $(".markdown-body").$(byText("Soft assertions")).click();
-            $("#wiki-content").shouldHave(text("Using JUnit5 extend test class:"));
+            $$(".markdown-heading").findBy(text("Using JUnit5 extend test class:"))
+                    .sibling(0).shouldHave(text("""
+                            @ExtendWith({SoftAssertsExtension.class})
+                            class Tests {
+                              @Test
+                              void test() {
+                                Configuration.assertionMode = SOFT;
+                                open("page.html");
+                            
+                                $("#first").should(visible).click();
+                                $("#second").should(visible).click();
+                              }
+                            }""".trim()));
         }
 }
